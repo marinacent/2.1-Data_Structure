@@ -47,7 +47,7 @@ CREATE TABLE `brands` (
   `last_name` varchar(50)
   );
   
-  CREATE TABLE `sale`(
+  CREATE TABLE `sales`(
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `glasses` integer,
   `customer` integer,
