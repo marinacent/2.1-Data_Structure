@@ -40,3 +40,19 @@ CREATE TABLE `brands` (
   `provider` integer,
   FOREIGN KEY (`provider`) REFERENCES `providers` (`id`)
   );
+  
+  CREATE TABLE `employees` (
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50),
+  `last_name` varchar(50)
+  );
+  
+  CREATE TABLE `sale`(
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `glasses` integer,
+  `customer` integer,
+  `employee` integer,
+  FOREIGN KEY (`glasses`) REFERENCES `glasses` (`id`),
+  FOREIGN KEY (`customer`) REFERENCES `customers` (`id`),
+  FOREIGN KEY (`employee`) REFERENCES `employees` (`id`)
+  );
