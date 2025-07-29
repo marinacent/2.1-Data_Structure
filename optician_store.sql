@@ -1,11 +1,5 @@
 # create table??
 
-CREATE TABLE `follows` (
-  `following_user_id` integer,
-  `followed_user_id` integer,
-  `created_at` timestamp
-);
-
 CREATE TABLE `customers` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50),
@@ -28,32 +22,20 @@ CREATE TABLE `providers`(
 
 CREATE TABLE `glasses` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `brand` varchar(50),
+  `brand` varchar(50),  # foreign key
   `prescription_right` varchar(50),
   `prescription_left` varchar(50),
   `frame_type` enum('rimless', 'plastic', 'metal'),
+  `frame_color` varchar(25), #what if the frame_type is rimless?
+  `color_right` varchar(25),
+  `color_left` varchar(25),
+  `price` float
+  );
   
+CREATE TABLE `brands` (
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` varchar(50), # unique / not null if used as key??
+  `provider` integer # foreign key
+  );
 
-    
-
-CREATE TABLE `users` (
-  `id` integer PRIMARY KEY,
-  `username` varchar(255),
-  `role` varchar(255),
-  `created_at` timestamp
-);
-
-CREATE TABLE `posts` (
-  `id` integer PRIMARY KEY,
-  `title` varchar(255),
-  `body` text COMMENT 'Content of the post',
-  `user_id` integer NOT NULL,
-  `status` varchar(255),
-  `created_at` timestamp
-);
-
-ALTER TABLE `posts` ADD CONSTRAINT `user_posts` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
-ALTER TABLE `follows` ADD FOREIGN KEY (`following_user_id`) REFERENCES `users` (`id`);
-
-ALTER TABLE `follows` ADD FOREIGN KEY (`followed_user_id`) REFERENCES `users` (`id`);
+ALTER TABLE `brands` ADD FOREIGN KEY (`provider`) REFERENCES `providers` (`id`);
