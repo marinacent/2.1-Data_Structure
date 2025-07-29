@@ -5,9 +5,9 @@ CREATE TABLE `follows` (
 );
 
 CREATE TABLE `customers` (
-  `id` integer PRIMARY KEY NOT NULL,
-  `first_name` varchar(255),
-  `last_name` varchar(255),
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50),
+  `last_name` varchar(50),
   `address` varchar(255),
   `phone_number` integer,
   `email` varchar(255),
