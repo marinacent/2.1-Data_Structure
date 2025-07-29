@@ -18,12 +18,23 @@ CREATE TABLE `customers` (
 );
 
 CREATE TABLE `providers`(
-	`id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    `address` varchar(50), # foreign key?
-    `phone_number` integer,
-    `fax_number` integer,
-    `nif` varchar(9)
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` varchar(50),
+  `address` varchar(50), # foreign key?
+  `phone_number` integer,
+  `fax_number` integer,
+  `nif` varchar(9)
 );
+
+CREATE TABLE `glasses` (
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `brand` varchar(50),
+  `prescription_right` varchar(50),
+  `prescription_left` varchar(50),
+  `frame_type` enum('rimless', 'plastic', 'metal'),
+  
+
+    
 
 CREATE TABLE `users` (
   `id` integer PRIMARY KEY,
