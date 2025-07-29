@@ -1,3 +1,5 @@
+# create table??
+
 CREATE TABLE `follows` (
   `following_user_id` integer,
   `followed_user_id` integer,
@@ -8,11 +10,19 @@ CREATE TABLE `customers` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50),
   `last_name` varchar(50),
-  `address` varchar(50),
+  `address` varchar(50), # foreign key?
   `phone_number` integer,
   `email` varchar(50),
   `registered` date DEFAULT NOW(),
-  `recommended_by` integer
+  `recommended_by` integer #foreign key?
+);
+
+CREATE TABLE `providers`(
+	`id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `address` varchar(50), # foreign key?
+    `phone_number` integer,
+    `fax_number` integer,
+    `nif` varchar(9)
 );
 
 CREATE TABLE `users` (
