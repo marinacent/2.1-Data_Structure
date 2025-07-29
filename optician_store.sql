@@ -8,10 +8,10 @@ CREATE TABLE `customers` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50),
   `last_name` varchar(50),
-  `address` varchar(255),
+  `address` varchar(50),
   `phone_number` integer,
-  `email` varchar(255),
-  `registered` timestamp,
+  `email` varchar(50),
+  `registered` date DEFAULT NOW(),
   `recommended_by` integer
 );
 
