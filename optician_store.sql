@@ -22,7 +22,7 @@ CREATE TABLE `providers`(
 
 CREATE TABLE `glasses` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `brand` varchar(50),  # foreign key
+  `brand` integer,
   `prescription_right` varchar(50),
   `prescription_left` varchar(50),
   `frame_type` enum('rimless', 'plastic', 'metal'),
@@ -34,8 +34,10 @@ CREATE TABLE `glasses` (
   
 CREATE TABLE `brands` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(50), # unique / not null if used as key??
-  `provider` integer # foreign key
+  `name` varchar(50),
+  `provider` integer
   );
 
 ALTER TABLE `brands` ADD FOREIGN KEY (`provider`) REFERENCES `providers` (`id`);
+
+ALTER TABLE `glasses` ADD FOREIGN KEY (`brand`) REFERENCES `brands` (`id`);
