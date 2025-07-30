@@ -4,21 +4,23 @@ CREATE TABLE `customers` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50),
   `last_name` varchar(50),
-  `address` varchar(50), # foreign key?
+  `address` integer,
   `phone_number` integer,
   `email` varchar(50),
   `registered` date DEFAULT NOW(),
   `recommended_by` integer,
+  FOREIGN KEY (`address`) REFERENCES `addresses` (`id`),
   FOREIGN KEY (`recommended_by`) REFERENCES `customers` (`id`)
 );
 
 CREATE TABLE `providers`(
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(50),
-  `address` varchar(50), # foreign key?
+  `address` integer,
   `phone_number` integer,
   `fax_number` integer,
-  `nif` varchar(9)
+  `nif` varchar(9),
+  FOREIGN KEY (`address`) REFERENCES `addresses` (`id`)
 );
 
 CREATE TABLE `glasses` (
@@ -55,4 +57,15 @@ CREATE TABLE `brands` (
   FOREIGN KEY (`glasses`) REFERENCES `glasses` (`id`),
   FOREIGN KEY (`customer`) REFERENCES `customers` (`id`),
   FOREIGN KEY (`employee`) REFERENCES `employees` (`id`)
+  );
+  
+  CREATE TABLE `addresses` (
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `street` varchar(50),
+  `number` integer,
+  `floor` integer,
+  `door` varchar(1),
+  `city` varchar(50),
+  `postal_code` varchar(25),
+  `country` varchar(50)
   );
