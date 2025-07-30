@@ -25,11 +25,11 @@ CREATE TABLE `providers`(
 
 CREATE TABLE `glasses` (
   `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `brand` integer, # should this be a varchar 'brand'??
+  `brand` integer, 
   `prescription_right` varchar(50),
   `prescription_left` varchar(50),
   `frame_type` enum('rimless', 'plastic', 'metal'),
-  `frame_color` varchar(25), #what if the frame_type is rimless?
+  `frame_color` varchar(25),
   `color_right` varchar(25),
   `color_left` varchar(25),
   `price` float,
