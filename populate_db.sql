@@ -16,10 +16,11 @@ INSERT INTO addresses VALUES (NULL, 'Sophia Garcia', 'Consell de Cent', '138', '
 INSERT INTO customers VALUES (NULL, 'Sophia', 'Garcia', 3, '931234567', 'sophia.garcia@mysqlmail.com', DEFAULT, NULL);
 INSERT INTO addresses VALUES (NULL, 'Josep Vives', 'Mallorca', '13', '6', '3', 'Barcelona', '08029', 'Spain');
 INSERT INTO customers VALUES (NULL, 'Josep', 'Vives', 4, '931287667', 'josep.vives@mysqlmail.com', DEFAULT, 1);
-INSERT INTO addresses VALUES (NULL, 'Anna Garcia', 'Londres', '34', '2', '1', 'Barcelona', '08014', 'Spain');
-INSERT INTO customers VALUES (NULL, 'Anna', 'Garcia', 5, '931212667', 'maria.garcia@mysqlmail.com', DEFAULT, 1);
-INSERT INTO addresses VALUES (NULL, 'Andreu Vila', 'Sant Jordi', '42', '1', '1', 'Vic', '08500', 'Spain');
-INSERT INTO customers VALUES (NULL, 'Andreu', 'Vila', 6, '936789123', 'andreu.vila@mysqlmail.com', DEFAULT, 3);
+
+INSERT INTO employees VALUES (NULL, 'Ivan', 'Corda');
+INSERT INTO employees VALUES (NULL, 'Judit', 'Portes');
+
+# TO DO: ADD 3 SALES
 
 
 
