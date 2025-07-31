@@ -1,11 +1,13 @@
-CREATE DATABASE IF NOT EXISTS optician_store;
+DROP DATABASE IF EXISTS optician_store;
+CREATE DATABASE optician_store CHARACTER SET utf8mb4;
 USE optician_store;
 
 CREATE TABLE `addresses` (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50),
   `street` VARCHAR(50),
-  `number` INT,
-  `floor` INT,
+  `number` VARCHAR(25),
+  `floor` VARCHAR(25),
   `door` CHAR,
   `city` VARCHAR(50),
   `postal_code` VARCHAR(25),
