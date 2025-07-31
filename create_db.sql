@@ -57,8 +57,7 @@ CREATE TABLE `glasses` (
   `prescription_left` VARCHAR(50),
   `frame_type` ENUM('rimless', 'plastic', 'metal'),
   `frame_color` VARCHAR(25),
-  `color_right` VARCHAR(25),
-  `color_left` VARCHAR(25),
+  `lens_color` VARCHAR(25),
   `price` FLOAT,
   FOREIGN KEY (`brand`) REFERENCES `brands` (`id`)
   );
