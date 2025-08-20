@@ -20,7 +20,11 @@ INSERT INTO customers VALUES (NULL, 'Josep', 'Vives', 4, '931287667', 'josep.viv
 INSERT INTO employees VALUES (NULL, 'Ivan', 'Corda');
 INSERT INTO employees VALUES (NULL, 'Judit', 'Portes');
 
-# TO DO: ADD 3 SALES
+INSERT INTO sales VALUES (NULL, 3, 1, 1, '2025-01-15 10:00:00');
+INSERT INTO sales VALUES (NULL, 1, 2, 2, '2025-03-22 16:30:00');
+INSERT INTO sales VALUES (NULL, 4, 1, 2, '2025-06-05 11:45:00');
+INSERT INTO sales VALUES (NULL, 4, 2, 1, '2025-07-10 12:15:00');
+INSERT INTO sales VALUES (NULL, 2, 1, 2, '2025-11-03 09:20:00');
 
 
 
