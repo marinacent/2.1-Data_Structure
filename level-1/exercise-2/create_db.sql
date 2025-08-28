@@ -52,9 +52,44 @@ END$$
 
 DELIMITER ;
 
+CREATE TABLE `pizza_categories` (
+  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL
+  );
+
+CREATE TABLE `products` (
+  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(75) NOT NULL,
+  `description` VARCHAR(150),
+  `type` ENUM('pizza', 'burger', 'drink') NOT NULL,
+  `image` LONGBLOB,
+  `price` FLOAT NOT NULL
+  );
+
+CREATE TABLE `pizzas` (
+  `product_id` INT PRIMARY KEY NOT NULL,
+  `category_id` INT NOT NULL,
+  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  FOREIGN KEY (`category_id`) REFERENCES `pizza_categories` (`id`)
+  );
+  
+
 CREATE TABLE `orders` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  `type` ENUM('delivery', 'pickup'),
+  `total_price` FLOAT
+  );
+  
+CREATE TABLE `product_orders` (
+  `order_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  PRIMARY KEY (`order_id`, `product_id`),
+  FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  FOREIGN KEY (`prodict_id`) REFERENCES `products` (`id`)
+  );
+  
   
   
   
