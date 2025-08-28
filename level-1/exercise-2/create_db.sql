@@ -77,7 +77,7 @@ CREATE TABLE `stores` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `address` VARCHAR(100),
   `postal_code` VARCHAR(25),
-  `municipality` INT UNSIGNED,
+  `municipality` INT UNSIGNED
   );
   
 -- add store!
