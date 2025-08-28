@@ -62,6 +62,15 @@ CREATE TABLE `orders` (
   FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`)
   );
   
+CREATE TABLE `deliveries` (
+  `order_id` INT PRIMARY KEY NOT NULL,
+  `delivery_person_id` INT NOT NULL,
+  `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  FOREIGN KEY (`delivery_person_id`) REFERENCES `employees` (`id`)
+  );
+  
+  
 CREATE TABLE `product_orders` (
   `order_id` INT NOT NULL,
   `product_id` INT NOT NULL,
