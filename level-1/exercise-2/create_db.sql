@@ -57,7 +57,9 @@ CREATE TABLE `orders` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   `type` ENUM('delivery', 'pickup'),
-  `total_price` FLOAT
+  `total_price` FLOAT,
+  `store_id` INT NOT NULL,
+  FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`)
   );
   
 CREATE TABLE `product_orders` (
