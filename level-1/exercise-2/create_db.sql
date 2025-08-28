@@ -72,8 +72,15 @@ CREATE TABLE `pizzas` (
   FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   FOREIGN KEY (`category_id`) REFERENCES `pizza_categories` (`id`)
   );
-  
 
+CREATE TABLE `stores` (
+  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `address` VARCHAR(100),
+  `postal_code` VARCHAR(25),
+  `municipality` INT UNSIGNED,
+  );
+  
+-- add store!
 CREATE TABLE `orders` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
