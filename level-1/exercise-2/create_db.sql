@@ -51,8 +51,8 @@ CREATE TABLE `stores` (
   `postal_code` VARCHAR(25),
   `municipality` INT UNSIGNED
   );
-  
--- add store!
+
+
 CREATE TABLE `orders` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
@@ -71,6 +71,14 @@ CREATE TABLE `product_orders` (
   FOREIGN KEY (`prodict_id`) REFERENCES `products` (`id`)
   );
   
+CREATE TABLE `employees` (
+  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50),
+  `surnames` VARCHAR(50),
+  `nif` CHAR(9) UNIQUE,
+  `phone_number` VARCHAR(25),
+  `type` ENUM('cook', 'delivery')
+  );
   
   
   
