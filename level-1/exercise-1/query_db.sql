@@ -21,7 +21,7 @@ JOIN employees e ON s.id_employee = e.id
 JOIN glasses g ON s.id_glasses = g.id
 JOIN brands b ON g.id_brand = b.id
 WHERE e.id = 2
-  AND YEAR(s.date) = 2025
+  AND YEAR(s.sale_date) = 2025
 ;
 
 SELECT DISTINCT 
