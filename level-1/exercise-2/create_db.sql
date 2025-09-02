@@ -60,7 +60,9 @@ CREATE TABLE `stores` (
   `surnames` VARCHAR(50),
   `nif` CHAR(9) UNIQUE,
   `phone_number` VARCHAR(25),
-  `type` ENUM('cook', 'delivery')
+  `type` ENUM('cook', 'delivery'),
+  `store_id` INT UNSIGNED NOT NULL,
+  FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`)
   );
 
 
