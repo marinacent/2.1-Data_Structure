@@ -34,7 +34,7 @@ INSERT INTO stores (address, postal_code, municipality_id) VALUES
 ('Carrer de Pelai 15', '08001', 1),
 ('Avinguda Jaume I 3', '17001', 3);
 
-INSERT INTO employees (name, surnames, nif, phone_number, type) VALUES
+INSERT INTO employees (name, surnames, nif, phone_number, type, store_id) VALUES
 ('Miguel', 'Hernandez', '12345678A', '600111222', 'cook', 1),
 ('Sofia', 'Ramirez', '87654321B', '600333444', 'delivery', 2);
 
