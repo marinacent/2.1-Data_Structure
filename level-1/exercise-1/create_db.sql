@@ -41,7 +41,7 @@ CREATE TABLE `customers` (
   `registered` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   `id_recommended_by` INT UNSIGNED,
   FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id`),
-  FOREIGN KEY (`id_recommended_by`) REFERENCES `customers` (`id`)
+  FOREIGN KEY (`id_recommended_by`) REFERENCES `customers` (`id`) ON DELETE SET NULL
 );
 
  CREATE TABLE `employees` (
