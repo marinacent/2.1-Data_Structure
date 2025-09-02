@@ -2,8 +2,6 @@ DROP DATABASE IF EXISTS optician_store;
 CREATE DATABASE optician_store CHARACTER SET utf8mb4;
 USE optician_store;
 
-SET FOREIGN_KEY_CHECKS = 0;
-
 CREATE TABLE `addresses` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50),
