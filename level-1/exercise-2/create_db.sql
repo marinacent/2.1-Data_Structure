@@ -67,13 +67,13 @@ CREATE TABLE `orders` (
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   `type` ENUM('delivery', 'pickup'),
   `total_price` FLOAT,
-  `store_id` INT NOT NULL,
+  `store_id` INT UNSIGNED NOT NULL,
   FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`)
   );
   
 CREATE TABLE `deliveries` (
-  `order_id` INT PRIMARY KEY NOT NULL,
-  `delivery_person_id` INT NOT NULL,
+  `order_id` INT UNSIGNED PRIMARY KEY NOT NULL,
+  `delivery_person_id` INT UNSIGNED NOT NULL,
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   FOREIGN KEY (`delivery_person_id`) REFERENCES `employees` (`id`)
@@ -81,9 +81,9 @@ CREATE TABLE `deliveries` (
   
   
 CREATE TABLE `product_orders` (
-  `order_id` INT NOT NULL,
-  `product_id` INT NOT NULL,
-  `quantity` INT NOT NULL,
+  `order_id` INT UNSIGNED NOT NULL,
+  `product_id` INT UNSIGNED NOT NULL,
+  `quantity` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`order_id`, `product_id`),
   FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
