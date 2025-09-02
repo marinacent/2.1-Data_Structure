@@ -68,7 +68,9 @@ CREATE TABLE `orders` (
   `type` ENUM('delivery', 'pickup'),
   `total_price` FLOAT,
   `store_id` INT UNSIGNED NOT NULL,
-  FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`)
+  `customer_id` INT UNSIGNED,
+  FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`)
   );
   
 CREATE TABLE `deliveries` (
