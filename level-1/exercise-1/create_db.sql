@@ -37,7 +37,7 @@ CREATE TABLE `customers` (
   `last_name` VARCHAR(50),
   `id_address` INT UNSIGNED,
   `phone_number` VARCHAR(25),
-  `email` VARCHAR(50),
+  `email` VARCHAR(255),
   `registered` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   `id_recommended_by` INT UNSIGNED,
   FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id`),
