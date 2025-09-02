@@ -20,8 +20,9 @@ CREATE TABLE `customers` (
   `surnames` VARCHAR(50),
   `address` VARCHAR(100),
   `postal_code` VARCHAR(25),
-  `municipality` INT UNSIGNED,
-  `phone_number` VARCHAR(25)
+  `municipality_id` INT UNSIGNED,
+  `phone_number` VARCHAR(25),
+  FOREIGN KEY (`municipality_id`) REFERENCES `municipalities` (`id`)
   );
 
 CREATE TABLE `pizza_categories` (
