@@ -85,5 +85,6 @@ CREATE TABLE `glasses` (
     ON DELETE RESTRICT,
   FOREIGN KEY (`id_employee`) 
 	REFERENCES `employees` (`id`)
-    ON DELETE RESTRICT
+    ON DELETE RESTRICT,
+  UNIQUE (`id_glasses`)
   );
