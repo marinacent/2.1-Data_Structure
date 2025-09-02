@@ -77,7 +77,7 @@ CREATE TABLE `product_orders` (
   `quantity` INT NOT NULL,
   PRIMARY KEY (`order_id`, `product_id`),
   FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  FOREIGN KEY (`prodict_id`) REFERENCES `products` (`id`)
+  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
   );
   
 CREATE TABLE `employees` (
