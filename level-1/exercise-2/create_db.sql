@@ -2,16 +2,16 @@ DROP DATABASE IF EXISTS pizzeria;
 CREATE DATABASE pizzeria CHARACTER SET utf8mb4;
 USE pizzeria;
 
+CREATE TABLE `provinces` (
+  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50)
+  );
+
 CREATE TABLE `municipalities` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50),
   `province` INT UNSIGNED,
   FOREIGN KEY (`province`) REFERENCES `provinces` (`id`)
-  );
-
-CREATE TABLE `provinces` (
-  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50)
   );
 
 CREATE TABLE `customers` (
@@ -51,6 +51,15 @@ CREATE TABLE `stores` (
   `postal_code` VARCHAR(25),
   `municipality` INT UNSIGNED
   );
+  
+  CREATE TABLE `employees` (
+  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50),
+  `surnames` VARCHAR(50),
+  `nif` CHAR(9) UNIQUE,
+  `phone_number` VARCHAR(25),
+  `type` ENUM('cook', 'delivery')
+  );
 
 
 CREATE TABLE `orders` (
@@ -78,15 +87,6 @@ CREATE TABLE `product_orders` (
   PRIMARY KEY (`order_id`, `product_id`),
   FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-  );
-  
-CREATE TABLE `employees` (
-  `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50),
-  `surnames` VARCHAR(50),
-  `nif` CHAR(9) UNIQUE,
-  `phone_number` VARCHAR(25),
-  `type` ENUM('cook', 'delivery')
   );
   
   
