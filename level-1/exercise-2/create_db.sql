@@ -36,7 +36,7 @@ CREATE TABLE `products` (
   `description` VARCHAR(150),
   `type` ENUM('pizza', 'burger', 'drink') NOT NULL,
   `image` LONGBLOB,
-  `price` FLOAT NOT NULL
+  `price` DECIMAL(6,2) NOT NULL
   );
 
 CREATE TABLE `pizzas` (
@@ -70,7 +70,7 @@ CREATE TABLE `orders` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `datetime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   `type` ENUM('delivery', 'pickup'),
-  `total_price` FLOAT,
+  `total_price` DECIMAL(8,2),
   `store_id` INT UNSIGNED NOT NULL,
   `customer_id` INT UNSIGNED,
   FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`),
