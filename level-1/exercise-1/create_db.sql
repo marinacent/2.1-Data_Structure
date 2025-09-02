@@ -4,7 +4,6 @@ USE optician_store;
 
 CREATE TABLE `addresses` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50),
   `street` VARCHAR(50),
   `number` VARCHAR(25),
   `floor` VARCHAR(25),
