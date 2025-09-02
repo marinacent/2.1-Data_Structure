@@ -77,7 +77,7 @@ CREATE TABLE `glasses` (
   `id_glasses` INT UNSIGNED,
   `id_customer` INT UNSIGNED,
   `id_employee` INT UNSIGNED,
-  `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  `sale_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   FOREIGN KEY (`id_glasses`) 
 	REFERENCES `glasses` (`id`)
 	ON DELETE RESTRICT,
