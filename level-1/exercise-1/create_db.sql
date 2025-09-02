@@ -21,14 +21,18 @@ CREATE TABLE `addresses` (
   `phone_number` VARCHAR(25),
   `fax_number` VARCHAR(25),
   `nif` CHAR(9) UNIQUE,
-  FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id`)
+  FOREIGN KEY (`id_address`) 
+	REFERENCES `addresses` (`id`)
+    ON DELETE RESTRICT
 );
 
 CREATE TABLE `brands` (
   `id` INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50),
   `id_provider` INT UNSIGNED,
-  FOREIGN KEY (`id_provider`) REFERENCES `providers` (`id`)
+  FOREIGN KEY (`id_provider`) 
+	REFERENCES `providers` (`id`)
+    ON DELETE CASCADE
   );
 
 CREATE TABLE `customers` (
@@ -40,8 +44,12 @@ CREATE TABLE `customers` (
   `email` VARCHAR(255),
   `registered` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   `id_recommended_by` INT UNSIGNED,
-  FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id`),
-  FOREIGN KEY (`id_recommended_by`) REFERENCES `customers` (`id`) ON DELETE SET NULL
+  FOREIGN KEY (`id_address`) 
+	REFERENCES `addresses` (`id`)
+	ON DELETE RESTRICT,
+  FOREIGN KEY (`id_recommended_by`) 
+	REFERENCES `customers` (`id`) 
+    ON DELETE SET NULL
 );
 
  CREATE TABLE `employees` (
@@ -59,7 +67,9 @@ CREATE TABLE `glasses` (
   `frame_color` VARCHAR(25),
   `lens_color` VARCHAR(25),
   `price` DECIMAL(10,2),
-  FOREIGN KEY (`id_brand`) REFERENCES `brands` (`id`)
+  FOREIGN KEY (`id_brand`) 
+	REFERENCES `brands` (`id`)
+    ON DELETE CASCADE
   );
   
   CREATE TABLE `sales`(
@@ -68,7 +78,13 @@ CREATE TABLE `glasses` (
   `id_customer` INT UNSIGNED,
   `id_employee` INT UNSIGNED,
   `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-  FOREIGN KEY (`id_glasses`) REFERENCES `glasses` (`id`),
-  FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id`),
-  FOREIGN KEY (`id_employee`) REFERENCES `employees` (`id`)
+  FOREIGN KEY (`id_glasses`) 
+	REFERENCES `glasses` (`id`)
+	ON DELETE RESTRICT,
+  FOREIGN KEY (`id_customer`) 
+	REFERENCES `customers` (`id`)
+    ON DELETE RESTRICT,
+  FOREIGN KEY (`id_employee`) 
+	REFERENCES `employees` (`id`)
+    ON DELETE RESTRICT
   );
