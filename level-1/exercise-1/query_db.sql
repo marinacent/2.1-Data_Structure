@@ -5,7 +5,7 @@ SELECT
 FROM sales s
 JOIN customers c ON s.id_customer = c.id
 WHERE c.id = 1
-  AND s.date BETWEEN '2025-01-01' AND '2025-12-31'
+  AND s.sale_date BETWEEN '2025-01-01' AND '2025-12-31'
 GROUP BY c.id, c.first_name, c.last_name;
 
 SELECT DISTINCT

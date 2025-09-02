@@ -1,5 +1,3 @@
--- redundant code?? check the populate code in ex 2
-
 INSERT INTO addresses VALUES (NULL, 'Pompeu Fabra', '2 bis', '2', 'A', 'Roses', '17480', 'Spain');  
 INSERT INTO providers VALUES (NULL, 'Ulleres Joan', 1, '973456541', '973456542', 'A12345678');
 INSERT INTO addresses VALUES (NULL, 'Garrotxa', '22', 'entresol', '2', 'Blanes', '17300', 'Spain');
@@ -26,16 +24,3 @@ INSERT INTO sales VALUES (NULL, 3, 1, 1, '2025-01-15 10:00:00');
 INSERT INTO sales VALUES (NULL, 1, 2, 2, '2025-03-22 16:30:00');
 INSERT INTO sales VALUES (NULL, 4, 1, 2, '2025-06-05 11:45:00');
 INSERT INTO sales VALUES (NULL, 2, 1, 2, '2025-11-03 09:20:00');
-
-
-
-
-
-
-
-
-
-
-
-
-
