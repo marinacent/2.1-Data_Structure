@@ -9,7 +9,7 @@ INSERT INTO municipalities (name, province) VALUES
 ('Badalona', 1), 
 ('Girona', 2);
 
-INSERT INTO customers (name, surnames, address, postal_code, municipality, phone_number) VALUES
+INSERT INTO customers (name, surnames, address, postal_code, municipality_id, phone_number) VALUES
 ('Laura', 'Gomez', 'Carrer de Balmes 10', '08007', 1, '600123456'),
 ('Carlos', 'Martinez', 'Carrer de Gracia 20', '08012', 1, '600654321'),
 ('Anna', 'Lopez', 'Avinguda Catalunya 5', '17001', 3, '650987654');
@@ -30,13 +30,13 @@ INSERT INTO pizzas (product_id, category_id) VALUES
 (1, 3),
 (2, 2);
 
-INSERT INTO stores (address, postal_code, municipality) VALUES
+INSERT INTO stores (address, postal_code, municipality_id) VALUES
 ('Carrer de Pelai 15', '08001', 1),
 ('Avinguda Jaume I 3', '17001', 3);
 
 INSERT INTO employees (name, surnames, nif, phone_number, type) VALUES
-('Miguel', 'Hernandez', '12345678A', '600111222', 'cook'),
-('Sofia', 'Ramirez', '87654321B', '600333444', 'delivery');
+('Miguel', 'Hernandez', '12345678A', '600111222', 'cook', 1),
+('Sofia', 'Ramirez', '87654321B', '600333444', 'delivery', 2);
 
 INSERT INTO orders (type, total_price, store_id) VALUES
 ('delivery', 11.5, 1),
