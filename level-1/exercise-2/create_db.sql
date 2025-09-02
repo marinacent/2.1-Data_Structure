@@ -42,8 +42,12 @@ CREATE TABLE products (
 CREATE TABLE pizzas (
   product_id INT UNSIGNED PRIMARY KEY NOT NULL,
   category_id INT UNSIGNED NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES products (id),
-  FOREIGN KEY (category_id) REFERENCES pizza_categories (id)
+  FOREIGN KEY (product_id) 
+	REFERENCES products (id)
+	ON DELETE CASCADE,
+  FOREIGN KEY (category_id) 
+	REFERENCES pizza_categories (id)
+    ON DELETE SET NULL
   );
 
 CREATE TABLE stores (
