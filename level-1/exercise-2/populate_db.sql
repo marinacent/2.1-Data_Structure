@@ -38,10 +38,10 @@ INSERT INTO employees (name, surnames, nif, phone_number, type, store_id) VALUES
 ('Miguel', 'Hernandez', '12345678A', '600111222', 'cook', 1),
 ('Sofia', 'Ramirez', '87654321B', '600333444', 'delivery', 2);
 
-INSERT INTO orders (type, total_price, store_id) VALUES
-('delivery', 11.5, 1),
-('pickup', 9.0, 1),
-('delivery', 7.5, 2);
+INSERT INTO orders (type, total_price, store_id, customer_id) VALUES
+('delivery', 11.5, 1, 1),
+('pickup', 9.0, 1, 3),
+('delivery', 7.5, 2, 1);
 
 INSERT INTO deliveries (order_id, delivery_person_id) VALUES
 (1, 2),
