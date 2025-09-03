@@ -29,6 +29,15 @@ CREATE TABLE videos (
   FOREIGN KEY (user_id) REFERENCES users (id)
   );
   
+CREATE TABLE tags (
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  video_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (video_id) 
+    REFERENCES videos (id)
+    ON DELETE CASCADE
+    );
+  
   
   
   
