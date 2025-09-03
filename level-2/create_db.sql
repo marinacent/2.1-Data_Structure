@@ -22,6 +22,7 @@ CREATE TABLE videos (
   file_name VARCHAR(255),
   length TIME,
   thumbnail LONGBLOB,
+  state ENUM('public', 'hidden', 'private'),
   number_of_views INT UNSIGNED,
   number_of_likes INT UNSIGNED,
   number_of_dislikes INT UNSIGNED 
