@@ -39,6 +39,15 @@ CREATE TABLE tags (
     ON DELETE CASCADE
   );
   
+CREATE TABLE channels (
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  description VARCHAR(1000),
+  creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (user_id) REFERENCES users (id)
+  );
+  
   
   
   
