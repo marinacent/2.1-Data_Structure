@@ -23,6 +23,7 @@ CREATE TABLE videos (
   length TIME,
   thumbnail LONGBLOB,
   state ENUM('public', 'hidden', 'private'),
+  upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   number_of_views INT UNSIGNED,
   number_of_likes INT UNSIGNED,
   number_of_dislikes INT UNSIGNED,
@@ -36,7 +37,7 @@ CREATE TABLE tags (
   FOREIGN KEY (video_id) 
     REFERENCES videos (id)
     ON DELETE CASCADE
-    );
+  );
   
   
   
