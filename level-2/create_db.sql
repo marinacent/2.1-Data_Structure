@@ -48,6 +48,20 @@ CREATE TABLE channels (
   FOREIGN KEY (user_id) REFERENCES users (id)
   );
   
+CREATE TABLE subscriptions (
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  channel_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (user_id) 
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (channel_id)
+    REFERENCES channels (id)
+    ON DELETE CASCADE
+  );
+
+  
+  
   
   
   
