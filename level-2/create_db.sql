@@ -63,6 +63,8 @@ CREATE TABLE subscriptions (
 CREATE TABLE likes (
   user_id INT UNSIGNED NOT NULL,
   video_id INT UNSIGNED NOT NULL,
+  type ENUM('like', 'dislike') NOT NULL,
+  like_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   PRIMARY KEY (user_id, video_id),
   FOREIGN KEY (user_id) 
     REFERENCES users (id)
