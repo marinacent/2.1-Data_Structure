@@ -97,6 +97,20 @@ CREATE TABLE playlist_videos (
     ON DELETE SET NULL
   );
   
+CREATE TABLE comments (
+  id INT UNSIGNED PRIMARY KEY NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  video_id INT UNSIGNED NOT NULL,
+  text VARCHAR (10000) NOT NULL,
+  comment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (video_id)
+    REFERENCES videos (id)
+    ON DELETE CASCADE
+  );
+  
   
   
   
