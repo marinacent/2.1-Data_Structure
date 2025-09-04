@@ -85,6 +85,17 @@ CREATE TABLE playlists (
     ON DELETE CASCADE
   );
 
+CREATE TABLE playlist_videos (
+  playlist_id INT UNSIGNED NOT NULL,
+  video_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (playlist_id, video_id),
+  FOREIGN KEY (playlist_id)
+    REFERENCES playlists (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (video_id)
+    REFERENCES videos (id)
+    ON DELETE SET NULL
+  );
   
   
   
