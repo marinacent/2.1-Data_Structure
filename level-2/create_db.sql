@@ -49,9 +49,9 @@ CREATE TABLE channels (
   );
   
 CREATE TABLE subscriptions (
-  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
   channel_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, channel_id),
   FOREIGN KEY (user_id) 
     REFERENCES users (id)
     ON DELETE CASCADE,
