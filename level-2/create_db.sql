@@ -74,6 +74,17 @@ CREATE TABLE likes (
     ON DELETE CASCADE
 );
 
+CREATE TABLE playlists (
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  state ENUM('public', 'private') DEFAULT 'private',
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE
+  );
+
   
   
   
