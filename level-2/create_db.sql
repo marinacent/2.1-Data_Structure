@@ -59,6 +59,18 @@ CREATE TABLE subscriptions (
     REFERENCES channels (id)
     ON DELETE CASCADE
   );
+  
+CREATE TABLE likes (
+  user_id INT UNSIGNED NOT NULL,
+  video_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, video_id),
+  FOREIGN KEY (user_id) 
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (video_id)
+    REFERENCES videos (id)
+    ON DELETE CASCADE
+);
 
   
   
