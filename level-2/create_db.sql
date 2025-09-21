@@ -12,10 +12,19 @@ CREATE TABLE users (
   country VARCHAR(50),
   postal_code VARCHAR(25)
   );
+  
+CREATE TABLE channels (
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  description VARCHAR(1000),
+  creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (user_id) REFERENCES users (id)
+  );
 
 CREATE TABLE videos (
   id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  user_id INT UNSIGNED NOT NULL,
+  channel_id INT UNSIGNED NOT NULL,
   title VARCHAR(100) NOT NULL,
   description VARCHAR(5000),
   size BIGINT UNSIGNED,
@@ -25,7 +34,7 @@ CREATE TABLE videos (
   state ENUM('public', 'hidden', 'private'),
   upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   number_of_views INT UNSIGNED,
-  FOREIGN KEY (user_id) REFERENCES users (id)
+  FOREIGN KEY (channel_id) REFERENCES channels (id)
   );
   
 CREATE TABLE tags (
@@ -43,15 +52,6 @@ CREATE TABLE video_tags (
   FOREIGN KEY (video_id) 
     REFERENCES videos (id)
     ON DELETE CASCADE
-  );
-  
-CREATE TABLE channels (
-  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  user_id INT UNSIGNED NOT NULL,
-  name VARCHAR(50) NOT NULL,
-  description VARCHAR(1000),
-  creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-  FOREIGN KEY (user_id) REFERENCES users (id)
   );
   
 CREATE TABLE subscriptions (
