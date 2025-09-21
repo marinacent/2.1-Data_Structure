@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS spotify;
+CREATE DATABASE spotify CHARACTER SET utf8mb4;
+USE spotify;
+
