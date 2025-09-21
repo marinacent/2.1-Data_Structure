@@ -4,9 +4,9 @@ USE youtube;
 
 CREATE TABLE users (
   id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  email VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
   password CHAR(60) NOT NULL,
-  username VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL UNIQUE,
   date_of_birth DATE,
   gender ENUM('male', 'female', 'other'),
   country VARCHAR(50),
