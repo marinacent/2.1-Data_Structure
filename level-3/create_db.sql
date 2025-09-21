@@ -58,7 +58,7 @@ CREATE TABLE artists (
   profile_picture LONGBLOB
   );
   
-CREATE TABLE folllowed_artists (
+CREATE TABLE followed_artists (
   user_id INT UNSIGNED NOT NULL,
   artist_id INT UNSIGNED NOT NULL,
   PRIMARY KEY (user_id, artist_id),
