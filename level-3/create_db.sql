@@ -58,6 +58,20 @@ CREATE TABLE artists (
   profile_picture LONGBLOB
   );
   
+CREATE TABLE folllowed_artists (
+  user_id INT UNSIGNED NOT NULL,
+  artist_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, artist_id),
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (artist_id)
+    REFERENCES artists (id)
+    ON DELETE CASCADE
+  );
+  
+  
+  
 CREATE TABLE albums (
   id INT UNSIGNED PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
@@ -83,7 +97,6 @@ CREATE TABLE tracks (
   
   
 -- how to compute number of songs¿?
--- is the thing with deletion okay?
 CREATE TABLE playlists (
   id INT UNSIGNED PRIMARY KEY,
   user_id INT UNSIGNED NOT NULL,
