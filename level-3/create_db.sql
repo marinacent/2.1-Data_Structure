@@ -130,14 +130,11 @@ CREATE TABLE liked_tracks (
     ON DELETE CASCADE
   );
   
-  
-  
--- how to compute number of songs¿?
+
 CREATE TABLE playlists (
   id INT UNSIGNED PRIMARY KEY,
   user_id INT UNSIGNED NOT NULL,
   name VARCHAR(100) NOT NULL,
-  number_of_tracks SMALLINT UNSIGNED,
   date_of_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   state ENUM('active', 'deleted') DEFAULT 'active',
   deletion_date TIMESTAMP DEFAULT NULL,
