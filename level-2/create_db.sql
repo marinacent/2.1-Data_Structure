@@ -25,8 +25,6 @@ CREATE TABLE videos (
   state ENUM('public', 'hidden', 'private'),
   upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   number_of_views INT UNSIGNED,
-  number_of_likes INT UNSIGNED,
-  number_of_dislikes INT UNSIGNED,
   FOREIGN KEY (user_id) REFERENCES users (id)
   );
   
