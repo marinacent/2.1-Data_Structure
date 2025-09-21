@@ -88,19 +88,31 @@ CREATE TABLE playlists (
   id INT UNSIGNED PRIMARY KEY,
   user_id INT UNSIGNED NOT NULL,
   name VARCHAR(100) NOT NULL,
-  number_of_songs SMALLINT UNSIGNED,
+  number_of_tracks SMALLINT UNSIGNED,
   date_of_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-  state ENUM('active', 'deleted') NOT NULL,
+  state ENUM('active', 'deleted') DEFAULT 'active',
   deletion_date TIMESTAMP DEFAULT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users (id)
     ON DELETE CASCADE
 );
 
--- you can only add songs to active playlists
-CREATE TABLE playlist_songs (
-  id INT UNSIGNED PRIMARY KEY,
-  -- complete after i have songs :)
+
+CREATE TABLE playlist_tracks (
+  track_id INT UNSIGNED NOT NULL,
+  playlist_id INT UNSIGNED NOT NULL,
+  added_by_user_id INT UNSIGNED NOT NULL,
+  date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (track_id, playlist_id),
+  FOREIGN KEY (track_id)
+    REFERENCES tracks (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (playlist_id)
+    REFERENCES playlists (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (added_by_user_id)
+    REFERENCES users (id)
+    ON DELETE SET NULL
   );
     
     
