@@ -15,7 +15,7 @@ CREATE TABLE users (
 
 CREATE TABLE subscriptions (
   user_id INT UNSIGNED PRIMARY KEY,
-  subscription_date DATE,
+  subscription_date DATE NOT NULL,
   renewal_date DATE NOT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users (id)
