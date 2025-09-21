@@ -60,7 +60,7 @@ CREATE TABLE subscriptions (
     ON DELETE CASCADE
   );
   
-CREATE TABLE likes (
+CREATE TABLE video_likes (
   user_id INT UNSIGNED NOT NULL,
   video_id INT UNSIGNED NOT NULL,
   type ENUM('like', 'dislike') NOT NULL,
@@ -110,6 +110,22 @@ CREATE TABLE comments (
     REFERENCES videos (id)
     ON DELETE CASCADE
   );
+  
+CREATE TABLE comment_likes (
+  user_id INT UNSIGNED NOT NULL,
+  comment_id INT UNSIGNED NOT NULL,
+  type ENUM('like', 'dislike') NOT NULL,
+  like_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (user_id, comment_id),
+  FOREIGN KEY (user_id) 
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (comment_id)
+    REFERENCES comments (id)
+    ON DELETE CASCADE
+);
+  
+
   
   
   
