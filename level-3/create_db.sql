@@ -112,7 +112,7 @@ CREATE TABLE tracks (
   title VARCHAR(255) NOT NULL,
   album_id INT UNSIGNED NOT NULL,
   duration_ms BIGINT UNSIGNED NOT NULL,
-  number_of_plays BIGINT UNSIGNED NOT NULL,
+  number_of_plays BIGINT UNSIGNED NOT NULL DEFAULT 0,
   FOREIGN KEY (album_id)
     REFERENCES albums (id)
     ON DELETE CASCADE
