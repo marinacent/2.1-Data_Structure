@@ -102,7 +102,7 @@ CREATE TABLE playlist_videos (
     ON DELETE CASCADE,
   FOREIGN KEY (video_id)
     REFERENCES videos (id)
-    ON DELETE SET NULL
+    ON DELETE CASCADE
   );
   
 CREATE TABLE comments (
