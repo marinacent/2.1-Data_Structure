@@ -52,13 +52,6 @@ CREATE TABLE payments (
     ON DELETE CASCADE
   );
   
-CREATE TABLE tracks (
-  id INT UNSIGNED PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  duration_ms BIGINT UNSIGNED NOT NULL,
-  number_of_plays BIGINT UNSIGNED NOT NULL
-  );
-  
 CREATE TABLE artists (
   id INT UNSIGNED PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -73,6 +66,17 @@ CREATE TABLE albums (
   cover LONGBLOB,
   FOREIGN KEY (artist_id)
     REFERENCES artists (id)
+    ON DELETE CASCADE
+  );
+  
+CREATE TABLE tracks (
+  id INT UNSIGNED PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  album_id INT UNSIGNED NOT NULL,
+  duration_ms BIGINT UNSIGNED NOT NULL,
+  number_of_plays BIGINT UNSIGNED NOT NULL,
+  FOREIGN KEY (album_id)
+    REFERENCES albums (id)
     ON DELETE CASCADE
   );
   
