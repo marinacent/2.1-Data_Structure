@@ -53,12 +53,15 @@ CREATE TABLE payments (
   );
   
 -- how to compute number of songs¿?
+-- is the thing with deletion okay?
 CREATE TABLE playlists (
   id INT UNSIGNED PRIMARY KEY,
   user_id INT UNSIGNED NOT NULL,
   name VARCHAR(100) NOT NULL,
   number_of_songs SMALLINT UNSIGNED,
   date_of_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  state ENUM('active', 'deleted') NOT NULL,
+  deletion_date TIMESTAMP DEFAULT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users (id)
     ON DELETE CASCADE
