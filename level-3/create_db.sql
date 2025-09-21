@@ -68,9 +68,12 @@ CREATE TABLE artists (
 CREATE TABLE albums (
   id INT UNSIGNED PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
-  -- artist
+  artist_id INT UNSIGNED NOT NULL,
   release_year YEAR NOT NULL,
-  cover LONGBLOB
+  cover LONGBLOB,
+  FOREIGN KEY (artist_id)
+    REFERENCES artists (id)
+    ON DELETE CASCADE
   );
   
   
