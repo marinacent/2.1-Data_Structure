@@ -18,7 +18,7 @@ CREATE TABLE videos (
   user_id INT UNSIGNED NOT NULL,
   title VARCHAR(100) NOT NULL,
   description VARCHAR(5000),
-  size FLOAT,
+  size BIGINT UNSIGNED,
   file_name VARCHAR(255),
   length TIME,
   thumbnail LONGBLOB,
