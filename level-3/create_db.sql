@@ -52,11 +52,25 @@ CREATE TABLE payments (
     ON DELETE CASCADE
   );
   
-CREATE TABLE songs (
+CREATE TABLE tracks (
   id INT UNSIGNED PRIMARY KEY,
-  song_title VARCHAR(255) NOT NULL,
-  length MEDIUMINT UNSIGNED,
-  number_of_plays BIGINT
+  title VARCHAR(255) NOT NULL,
+  duration_ms BIGINT UNSIGNED NOT NULL,
+  number_of_plays BIGINT UNSIGNED NOT NULL
+  );
+  
+CREATE TABLE artists (
+  id INT UNSIGNED PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  profile_picture LONGBLOB
+  );
+  
+CREATE TABLE albums (
+  id INT UNSIGNED PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  -- artist
+  release_year YEAR NOT NULL,
+  cover LONGBLOB
   );
   
   
