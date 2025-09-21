@@ -52,6 +52,15 @@ CREATE TABLE payments (
     ON DELETE CASCADE
   );
   
+CREATE TABLE songs (
+  id INT UNSIGNED PRIMARY KEY,
+  song_title VARCHAR(255) NOT NULL,
+  length MEDIUMINT UNSIGNED,
+  number_of_plays BIGINT
+  );
+  
+  
+  
 -- how to compute number of songs¿?
 -- is the thing with deletion okay?
 CREATE TABLE playlists (
@@ -66,6 +75,12 @@ CREATE TABLE playlists (
     REFERENCES users (id)
     ON DELETE CASCADE
 );
+
+-- you can only add songs to active playlists
+CREATE TABLE playlist_songs (
+  id INT UNSIGNED PRIMARY KEY,
+  -- complete after i have songs :)
+  );
     
     
     
