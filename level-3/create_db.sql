@@ -70,6 +70,19 @@ CREATE TABLE folllowed_artists (
     ON DELETE CASCADE
   );
   
+CREATE TABLE related_artist (
+  first_artist_id INT UNSIGNED NOT NULL,
+  second_artist_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (first_artist_id, second_artist_id),
+  FOREIGN KEY (first_artist_id)
+    REFERENCES artists (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (first_artist_id)
+    REFERENCES artists (id)
+    ON DELETE CASCADE,
+  CHECK (first_artist_id < second_artist_id)
+  );
+  
   
   
 CREATE TABLE albums (
