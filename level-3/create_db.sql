@@ -147,7 +147,7 @@ CREATE TABLE playlists (
 CREATE TABLE playlist_tracks (
   track_id INT UNSIGNED NOT NULL,
   playlist_id INT UNSIGNED NOT NULL,
-  added_by_user_id INT UNSIGNED NOT NULL,
+  added_by_user_id INT UNSIGNED,
   date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (track_id, playlist_id),
   FOREIGN KEY (track_id)
