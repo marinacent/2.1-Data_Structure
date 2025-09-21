@@ -70,21 +70,20 @@ CREATE TABLE folllowed_artists (
     ON DELETE CASCADE
   );
   
-CREATE TABLE related_artist (
+CREATE TABLE related_artists (
   first_artist_id INT UNSIGNED NOT NULL,
   second_artist_id INT UNSIGNED NOT NULL,
   PRIMARY KEY (first_artist_id, second_artist_id),
   FOREIGN KEY (first_artist_id)
     REFERENCES artists (id)
     ON DELETE CASCADE,
-  FOREIGN KEY (first_artist_id)
+  FOREIGN KEY (second_artist_id)
     REFERENCES artists (id)
     ON DELETE CASCADE,
   CHECK (first_artist_id < second_artist_id)
   );
   
-  
-  
+
 CREATE TABLE albums (
   id INT UNSIGNED PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
@@ -96,6 +95,18 @@ CREATE TABLE albums (
     ON DELETE CASCADE
   );
   
+CREATE TABLE liked_albums (
+  user_id INT UNSIGNED NOT NULL,
+  album_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, album_id),
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (album_id)
+    REFERENCES albums (id)
+    ON DELETE CASCADE
+  );
+  
 CREATE TABLE tracks (
   id INT UNSIGNED PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
@@ -104,6 +115,18 @@ CREATE TABLE tracks (
   number_of_plays BIGINT UNSIGNED NOT NULL,
   FOREIGN KEY (album_id)
     REFERENCES albums (id)
+    ON DELETE CASCADE
+  );
+  
+CREATE TABLE liked_tracks (
+  user_id INT UNSIGNED NOT NULL,
+  track_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, track_id),
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (track_id)
+    REFERENCES tracks (id)
     ON DELETE CASCADE
   );
   
