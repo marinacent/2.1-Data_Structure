@@ -42,6 +42,15 @@ CREATE TABLE paypal_subscriptions (
     ON DELETE CASCADE
   );
   
+CREATE TABLE payments (
+  id INT UNSIGNED PRIMARY KEY,
+  user_id INT UNSIGNED,
+  payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  total_paid FLOAT,
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE
+  );
     
     
     
