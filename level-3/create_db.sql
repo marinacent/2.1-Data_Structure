@@ -36,7 +36,7 @@ CREATE TABLE card_subscriptions (
   
 CREATE TABLE paypal_subscriptions (
   user_id INT UNSIGNED PRIMARY KEY,
-  paypal_username VARCHAR(255),
+  paypal_username VARCHAR(255) NOT NULL,
   FOREIGN KEY (user_id)
     REFERENCES subscriptions (user_id)
     ON DELETE CASCADE
