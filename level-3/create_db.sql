@@ -44,13 +44,25 @@ CREATE TABLE paypal_subscriptions (
   
 CREATE TABLE payments (
   id INT UNSIGNED PRIMARY KEY,
-  user_id INT UNSIGNED,
+  user_id INT UNSIGNED NOT NULL,
   payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-  total_paid FLOAT,
+  total_paid FLOAT NOT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users (id)
     ON DELETE CASCADE
   );
+  
+-- how to compute number of songs¿?
+CREATE TABLE playlists (
+  id INT UNSIGNED PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  number_of_songs SMALLINT UNSIGNED,
+  date_of_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE
+);
     
     
     
