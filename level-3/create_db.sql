@@ -17,11 +17,31 @@ CREATE TABLE subscriptions (
   user_id INT UNSIGNED PRIMARY KEY,
   subscription_date DATE,
   renewal_date DATE NOT NULL,
-  payment_method ENUM('card', 'paypal') NOT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users (id)
-    ON DELETE CASCADE,
+    ON DELETE CASCADE
   );
+  
+
+CREATE TABLE card_subscriptions (
+  user_id INT UNSIGNED PRIMARY KEY,
+  number VARCHAR(19) NOT NULL,
+  expiry_month TINYINT NOT NULL,
+  expiry_year YEAR NOT NULL,
+  security_code VARCHAR(4) NOT NULL,
+  FOREIGN KEY (user_id)
+    REFERENCES subscriptions (user_id)
+    ON DELETE CASCADE
+  );
+  
+CREATE TABLE paypal_subscriptions (
+  user_id INT UNSIGNED PRIMARY KEY,
+  paypal_username VARCHAR(255),
+  FOREIGN KEY (user_id)
+    REFERENCES subscriptions (user_id)
+    ON DELETE CASCADE
+  );
+  
     
     
     
