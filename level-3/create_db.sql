@@ -14,11 +14,16 @@ CREATE TABLE users (
   );
 
 CREATE TABLE subscriptions (
-  user_id INT UNSIGNED PRIMARY KEY,
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
   subscription_date DATE NOT NULL,
   renewal_date DATE NOT NULL,
+  payment_method_id INT UNSIGNED NOT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (payment_method_id)
+    REFERENCES payment_methods (id)
     ON DELETE CASCADE
   );
   
