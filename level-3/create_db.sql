@@ -22,25 +22,34 @@ CREATE TABLE subscriptions (
     ON DELETE CASCADE
   );
   
+CREATE TABLE payment_methods (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  type ENUM('card', 'paypal') NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
+    ON DELETE CASCADE
+);
 
-CREATE TABLE card_subscriptions (
-  user_id INT UNSIGNED PRIMARY KEY,
-  number VARCHAR(19) NOT NULL,
+CREATE TABLE card_payment_methods (
+  payment_method_id INT UNSIGNED PRIMARY KEY,
+  card_number VARCHAR(19) NOT NULL,
   expiry_month TINYINT NOT NULL,
   expiry_year YEAR NOT NULL,
   security_code VARCHAR(4) NOT NULL,
-  FOREIGN KEY (user_id)
-    REFERENCES subscriptions (user_id)
+  FOREIGN KEY (payment_method_id)
+    REFERENCES payment_methods (id)
     ON DELETE CASCADE
-  );
+);
   
-CREATE TABLE paypal_subscriptions (
-  user_id INT UNSIGNED PRIMARY KEY,
+CREATE TABLE paypal_payment_methods (
+  payment_method_id INT UNSIGNED PRIMARY KEY,
   paypal_username VARCHAR(255) NOT NULL,
-  FOREIGN KEY (user_id)
-    REFERENCES subscriptions (user_id)
+  FOREIGN KEY (payment_method_id)
+    REFERENCES payment_methods (id)
     ON DELETE CASCADE
-  );
+);
   
 CREATE TABLE payments (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
